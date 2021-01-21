@@ -11,4 +11,11 @@ describe TowerHanoi do
     end
   end
 
+  describe "#move" do 
+    it "moves a number from one tower to another" do 
+      hanoi.move(tower1, tower3)
+      expect(hanoi.tower3).to eq([1])
+      expect(hanoi.tower1).to eq([5, 4, 3, 2])
+    end
+  end
 end
