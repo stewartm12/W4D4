@@ -15,10 +15,23 @@ subject(:deck) {Deck.new}
     end
 
     it "contains four of each value" do
-      kings = deck.cards.select {|card| card.value == "king"}
+      kings = deck.cards.select {|card| card.value == "King"}
       expect(kings.length).to eq(4)
     end
   end
 
-  
+  describe "#shuffle" do
+    it "shuffles the cards" do 
+      allcard = deck.cards.dup
+      allcard.shuffle!
+      expect(deck.cards).to_not eq(allcard)
+    end
+  end
+
+  describe "#deal" do 
+   let(:hand) = double(Hand.new)
+    it "distribute a card to a hand" do 
+      expect()
+    end
+  end
 end

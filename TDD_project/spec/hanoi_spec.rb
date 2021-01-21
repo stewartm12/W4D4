@@ -19,8 +19,6 @@ describe TowerHanoi do
     end
 
     context "if disc being moved is larger than receiving tower" do
-      
-      
       it "should raise an error" do
         hanoi.move(hanoi.tower1, hanoi.tower3)
         expect{hanoi.move(hanoi.tower1, hanoi.tower3)}.to raise_error("Cannot move bigger disc on top of a smaller disc")
@@ -28,4 +26,12 @@ describe TowerHanoi do
     end
 
   end
+
+  describe "#win" do 
+    it "returns true if tower3 is full" do 
+      hanoi.tower3 = [5, 4, 3, 2, 1]
+      expect(hanoi.win).to be true 
+    end
+  end
+
 end
