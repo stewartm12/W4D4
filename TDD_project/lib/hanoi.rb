@@ -1,3 +1,4 @@
+#require "byebug"
 class TowerHanoi
   attr_accessor :tower1, :tower2, :tower3
 
@@ -17,7 +18,12 @@ class TowerHanoi
   end
 
   def win 
-    tower3 == [5, 4, 3, 2, 1]
+    if tower3 == [5, 4, 3, 2, 1]
+      puts "Congratulations you won!"
+      true
+    else
+      false
+    end
   end
 
   def print
@@ -28,18 +34,37 @@ class TowerHanoi
 
   def user_input
     puts "Move piece in the form as '1 2'"
+    
     user_in = gets.chomp.split
     user_in.map! do |num|
-      return tower1 if num == "1"
-      return tower2 if num == "2"
-      return tower3 if num == "3"
+       if num == "1"
+        @tower1
+       elsif num == "2"
+        @tower2
+       elsif num == "3"
+        @tower3 
+       else 
+        raise "Invalid tower"
+       end
     end
+    return user_in
   end
 
   def play
-    while !win
+    while !self.win
       
+      system("clear")
+      begin
+      self.print
+      towers = self.user_input
+      move(towers[0], towers[1])
+      rescue
+        puts "Invalid move"
+        retry
+      end
     end
   end
 
 end
+h = TowerHanoi.new
+h.play
