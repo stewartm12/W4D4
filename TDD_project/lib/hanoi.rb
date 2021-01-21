@@ -7,4 +7,14 @@ class TowerHanoi
     @tower3 = []
   end
 
+  def move(tower1, tower2)
+    if tower2.empty? || tower2.last > tower1.last
+        disc = tower1.pop
+
+        tower2 << disc
+    else
+     raise "Cannot move bigger disc on top of a smaller disc" if tower2.last < tower1.last
+    end
+  end
+
 end
