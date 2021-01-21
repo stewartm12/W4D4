@@ -33,3 +33,20 @@ def my_transpose(arr)
   end
   new_arr
 end
+
+def stock_picker(stocks)
+  max_diff = []
+  max_val = 0
+
+  (0...stocks.length - 1).each do |i|
+    (i + 1...stocks.length).each do |j|
+      if stocks[j] - stocks[i] > max_val 
+        max_diff = [i, j]
+        max_val = stocks[j] - stocks[i]
+      end
+    end
+  end
+
+  max_diff
+end
+

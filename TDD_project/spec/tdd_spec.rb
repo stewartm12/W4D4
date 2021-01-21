@@ -28,3 +28,11 @@ describe "my_transpose" do
       expect(my_transpose(arr)).to eq([[0, 3, 6], [1, 4, 7], [2, 5, 8]])
   end
 end
+
+describe "stock_picker" do 
+  subject(:stocks) { [500, 100, 300, 200, 700, 400, 750] }
+  it "returns indices of the best day to buy and sell" do
+    expect(stock_picker(stocks)).to eq([1, 6])
+  end
+end
+
